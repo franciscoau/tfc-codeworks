@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TFC CodeWorks desarrolla soluciones digitales personalizadas para optimizar procesos y organizar negocios." />
+  <title>TFC CodeWorks | Soluciones digitales a tu medida</title>
+
+  <style>
+    :root {
+      --bg: #181A18;
+      --bg-2: #232622;
+      --panel: rgba(44, 48, 43, 0.94);
+      --panel-strong: #2C302B;
+      --primary: #6F7D55;
+      --primary-2: #9AAA78;
+      --accent: #858B87;
+      --text: #F1EFE8;
+      --muted: #BBBDB5;
+      --success: #8FA66F;
+      --warning: #9AAA78;
+      --border: rgba(154, 170, 120, 0.24);
+      --shadow: 0 20px 55px rgba(0, 0, 0, 0.42);
+      --radius: 22px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px),
+        radial-gradient(circle at top right, rgba(111, 125, 85, 0.14), transparent 30%),
+        radial-gradient(circle at 12% 18%, rgba(154, 170, 120, 0.05), transparent 24%),
+        linear-gradient(180deg, #171917 0%, var(--bg) 50%, #20231F 100%);
+      background-size: 36px 36px, 36px 36px, auto, auto, auto;
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-title {
+      max-width: 700px;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      background: rgba(111, 125, 85, 0.10);
+      border-radius: 999px;
+      color: var(--primary-2);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    /* Header */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(24, 26, 24, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #343A33, #20231F);
+      border: 1px solid rgba(154, 170, 120, 0.52);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
+      font-weight: 900;
+      color: var(--primary-2);
+    }
+
+    .brand span {
+      color: var(--primary-2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 11px 18px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: white !important;
+      box-shadow: 0 10px 28px rgba(111, 125, 85, 0.24);
+    }
+
+    .menu-button {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 94px 0 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .gradient {
+      display: block;
+      background: linear-gradient(90deg, var(--primary-2), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      font-size: 1.14rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 14px 22px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #596744);
+      color: white;
+      box-shadow: 0 14px 34px rgba(111, 125, 85, 0.26);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      color: #DFE2D7;
+      font-size: 0.94rem;
+    }
+
+    .hero-points span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-points span::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 900;
+    }
+
+    /* Product mockup */
+
+    .mockup {
+      background: linear-gradient(145deg, rgba(44, 48, 43, 0.98), rgba(24, 26, 24, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transform: perspective(1100px) rotateY(-4deg) rotateX(2deg);
+    }
+
+    .mockup-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px 18px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .dots i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: block;
+      background: #35506f;
+    }
+
+    .dots i:nth-child(1) { background: #ff6b6b; }
+    .dots i:nth-child(2) { background: #ffcc66; }
+    .dots i:nth-child(3) { background: #4ee08c; }
+
+    .mockup-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .dashboard {
+      background: #ECEDE7;
+      color: #293029;
+      border-radius: 19px;
+      padding: 18px;
+      min-height: 470px;
+    }
+
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .dash-header h3 {
+      font-size: 1rem;
+    }
+
+    .status {
+      background: #def8eb;
+      color: #138650;
+      font-weight: 800;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+
+    .dash-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .dash-card,
+    .mini-panel {
+      background: white;
+      border: 1px solid #e5ecf5;
+      border-radius: 13px;
+      padding: 13px;
+      box-shadow: 0 6px 15px rgba(13, 41, 76, 0.06);
+    }
+
+    .dash-card small {
+      color: #6d7d91;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .dash-card strong {
+      font-size: 1.22rem;
+    }
+
+    .dash-main {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 12px;
+    }
+
+    .chart {
+      height: 180px;
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      padding-top: 22px;
+    }
+
+    .chart span {
+      flex: 1;
+      background: linear-gradient(180deg, var(--primary-2), var(--primary));
+      border-radius: 8px 8px 3px 3px;
+      min-height: 28px;
+    }
+
+    .chart span:nth-child(1) { height: 34%; }
+    .chart span:nth-child(2) { height: 53%; }
+    .chart span:nth-child(3) { height: 45%; }
+    .chart span:nth-child(4) { height: 68%; }
+    .chart span:nth-child(5) { height: 82%; }
+    .chart span:nth-child(6) { height: 74%; }
+    .chart span:nth-child(7) { height: 94%; }
+
+    .inventory-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .inventory-list div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #edf2f8;
+      font-size: 0.84rem;
+    }
+
+    .stock-low {
+      color: #d8662d;
+      font-weight: 800;
+    }
+
+    /* Problem cards */
+
+    .problem-grid,
+    .services-grid,
+    .audience-grid,
+    .pricing-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .problem-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: rgba(111, 125, 85, 0.13);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      color: var(--primary-2);
+      font-size: 1.35rem;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .solution-banner {
+      margin-top: 32px;
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(154, 170, 120, 0.24);
+      background: linear-gradient(135deg, rgba(111, 125, 85, 0.12), rgba(143, 148, 153, 0.05));
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .solution-banner span {
+      color: var(--primary-2);
+    }
+
+    /* Services */
+
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service-card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card .service-link {
+      margin-top: auto;
+      padding-top: 18px;
+      color: var(--primary-2);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    /* Demo */
+
+    .demo-wrap {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .demo-tabs {
+      display: grid;
+      gap: 12px;
+    }
+
+    .demo-tab {
+      width: 100%;
+      text-align: left;
+      padding: 17px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: white;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .demo-tab.active {
+      background: linear-gradient(135deg, rgba(111, 125, 85, 0.22), rgba(143, 148, 153, 0.08));
+      border-color: rgba(154, 170, 120, 0.56);
+    }
+
+    .demo-screen {
+      background: #f7f9fc;
+      color: #2A302B;
+      border-radius: 24px;
+      padding: 28px;
+      min-height: 420px;
+      box-shadow: var(--shadow);
+    }
+
+    .demo-screen h3 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .demo-screen > p {
+      color: #737A72;
+      margin-bottom: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid #dbe3ed;
+      border-radius: 10px;
+      background: white;
+      color: #2A302B;
+    }
+
+    .result-box {
+      margin-top: 18px;
+      background: #EDF0E7;
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .result-box strong {
+      color: #6F7D55;
+      font-size: 1.65rem;
+    }
+
+    .demo-button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 13px;
+      border: 0;
+      border-radius: 11px;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .fake-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .fake-table th,
+    .fake-table td {
+      text-align: left;
+      padding: 12px 8px;
+      border-bottom: 1px solid #e3e9f2;
+      font-size: 0.88rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      background: #def8eb;
+      color: #138650;
+    }
+
+    /* Process */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary);
+      font-weight: 900;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(111, 125, 85, 0.26);
+    }
+
+    /* Audience */
+
+    .audience-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .audience-item {
+      text-align: center;
+      padding: 22px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: #D9DDD2;
+      font-weight: 700;
+    }
+
+    /* Pricing */
+
+    .pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .price-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border-color: rgba(154, 170, 120, 0.62);
+      transform: translateY(-10px);
+      background: linear-gradient(180deg, rgba(111, 125, 85, 0.16), rgba(42, 42, 42, 0.94));
+    }
+
+    .popular {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .price-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 2.25rem;
+      font-weight: 900;
+      margin: 18px 0;
+    }
+
+    .price small {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .price-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .price-list li {
+      list-style: none;
+      display: flex;
+      gap: 9px;
+    }
+
+    .price-list li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 900;
+    }
+
+
+    /* Catálogo de precios */
+    .catalog-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .catalog-card {display:flex;flex-direction:column;min-height:290px;}
+    .catalog-price {margin:18px 0 14px;color:var(--primary-2);font-size:1.55rem;font-weight:900;}
+    .catalog-price small {display:block;margin-top:4px;color:var(--muted);font-size:.78rem;font-weight:600;}
+    .catalog-card ul {display:grid;gap:9px;margin-bottom:22px;color:var(--muted);}
+    .catalog-card li {list-style:none;display:flex;gap:8px;font-size:.92rem;}
+    .catalog-card li::before {content:"—";color:var(--primary-2);font-weight:900;}
+    .catalog-card .btn {margin-top:auto;}
+    .pricing-note {margin-top:22px;padding:18px 20px;border-left:3px solid var(--primary);background:rgba(255,255,255,.035);color:var(--muted);border-radius:0 12px 12px 0;}
+    .request-reference {margin-bottom:18px;padding:12px 14px;border:1px dashed var(--border);border-radius:12px;color:var(--primary-2);background:rgba(183,120,62,.06);font-size:.9rem;font-weight:800;}
+    .two-fields {display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+    /* FAQ */
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      max-width: 900px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      color: white;
+      border: 0;
+      padding: 20px 22px;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 22px 22px;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-copy {
+      position: sticky;
+      top: 110px;
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 18px;
+    }
+
+    .contact-copy p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .contact-benefits {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-benefits span {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #D9DDD2;
+    }
+
+    .contact-benefits span::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 900;
+    }
+
+    .contact-form {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .contact-form .field {
+      margin-bottom: 16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.055);
+      color: white;
+      outline: none;
+    }
+
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form option {
+      color: #111;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 12px;
+    }
+
+    /* Footer */
+
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #b7783e, #596744);
+      color: white;
+      font-size: 1.25rem;
+      box-shadow: 0 15px 35px rgba(111, 125, 85, 0.28);
+      z-index: 60;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+
+    .card,
+    .catalog-card,
+    .faq-item,
+    .audience-item {
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .card:hover,
+    .catalog-card:hover,
+    .audience-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(154, 170, 120, 0.42);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: rgba(154, 170, 120, 0.72);
+      box-shadow: 0 0 0 3px rgba(111, 125, 85, 0.13);
+    }
+
+    .nav-links a:not(.nav-cta) {
+      position: relative;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: var(--primary-2);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after {
+      width: 100%;
+    }
+
+
+    .form-status {display:none;margin-top:16px;padding:14px 16px;border-radius:12px;font-size:.92rem;font-weight:700;}
+    .form-status.success {display:block;color:#EAF0E3;background:rgba(111,125,85,.22);border:1px solid rgba(154,170,120,.45);}
+    .form-status.error {display:block;color:#F5E6E3;background:rgba(158,74,61,.18);border:1px solid rgba(190,98,82,.45);}
+    .btn[disabled] {opacity:.65;cursor:wait;transform:none;}
+
+    /* Responsive */
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .demo-wrap,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-grid,
+      .services-grid,
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .pricing-grid,
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+
+      .mockup {
+        transform: none;
+      }
+
+      .contact-copy {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 74px 0;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 22px 4%;
+        background: #232622;
+        border-bottom: 1px solid var(--border);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+      .hero {
+        padding-top: 68px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 16vw, 4.5rem);
+      }
+
+      .problem-grid,
+      .services-grid,
+      .process-grid,
+      .audience-grid,
+      .catalog-grid,
+      .two-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-cards,
+      .dash-main {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard {
+        min-height: auto;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .demo-screen {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="TFC CodeWorks">
+        <div class="brand-mark">&lt;/&gt;</div>
+        <div><span>TFC</span> CodeWorks</div>
+      </a>
+
+      <button class="menu-button" id="menuButton" aria-label="Abrir menú">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#servicios">Servicios</a>
+        <a href="#ejemplos">Ejemplos</a>
+        <a href="#proceso">Cómo funciona</a>
+        <a href="#precios">Precios</a>
+        <a class="nav-cta" href="#contacto">Cuéntame tu idea</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Soluciones digitales para personas y negocios</div>
+
+          <h1>
+            Transformamos procesos con
+            <span class="gradient">soluciones digitales</span>
+          </h1>
+
+          <p class="hero-copy">
+            Creamos soluciones simples y personalizadas para automatizar cálculos,
+            organizar información, controlar procesos y ahorrar tiempo en tu negocio.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contacto" class="btn btn-primary">Cuéntame qué necesitas →</a>
+            <a href="#ejemplos" class="btn btn-secondary">Ver ejemplos</a>
+          </div>
+
+          <div class="hero-points">
+            <span>Sin conocimientos técnicos</span>
+            <span>Diseño a tu medida</span>
+            <span>Funciona desde el navegador</span>
+          </div>
+        </div>
+
+        <div class="mockup">
+          <div class="mockup-topbar">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="mockup-label">Panel de gestión personalizado</div>
+          </div>
+
+          <div class="dashboard">
+            <div class="dash-header">
+              <div>
+                <small>Resumen general</small>
+                <h3>Mi negocio</h3>
+              </div>
+              <div class="status">● Sistema activo</div>
+            </div>
+
+            <div class="dash-cards">
+              <div class="dash-card">
+                <small>Ventas del mes</small>
+                <strong>$1.250.000</strong>
+              </div>
+              <div class="dash-card">
+                <small>Pedidos</small>
+                <strong>32</strong>
+              </div>
+              <div class="dash-card">
+                <small>Productos</small>
+                <strong>156</strong>
+              </div>
+            </div>
+
+            <div class="dash-main">
+              <div class="mini-panel">
+                <strong>Actividad semanal</strong>
+                <div class="chart">
+                  <span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+
+              <div class="mini-panel">
+                <strong>Inventario</strong>
+                <div class="inventory-list">
+                  <div><span>Producto A</span><b>45</b></div>
+                  <div><span>Producto B</span><b class="stock-low">8</b></div>
+                  <div><span>Producto C</span><b>23</b></div>
+                  <div><span>Producto D</span><b>60</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problemas">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Problemas comunes</div>
+          <h2>¿Todavía haces todo de forma manual?</h2>
+          <p>
+            Muchas tareas pequeñas terminan consumiendo varias horas a la semana.
+            Una herramienta sencilla puede ordenar el proceso completo.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="card">
+            <div class="card-icon">✍️</div>
+            <h3>Registros en cuadernos</h3>
+            <p>Pedidos, clientes y datos importantes quedan dispersos o se pierden.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧮</div>
+            <h3>Cálculos repetitivos</h3>
+            <p>Calculas precios, márgenes o presupuestos una y otra vez.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📂</div>
+            <h3>Información desordenada</h3>
+            <p>Usas varias planillas y no sabes cuál contiene los datos actualizados.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⏱️</div>
+            <h3>Tiempo perdido</h3>
+            <p>Procesos simples terminan quitándote tiempo para vender o atender.</p>
+          </article>
+        </div>
+
+        <div class="solution-banner">
+          En <span>TFC CodeWorks</span> convertimos tareas manuales en soluciones digitales
+          claras, rápidas y fáciles de usar.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Servicios</div>
+          <h2>Soluciones que podemos crear</h2>
+          <p>
+            No necesitas saber qué tecnología usar. Solo debes contarnos qué tarea quieres mejorar.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card service-card">
+            <div class="card-icon">🧮</div>
+            <h3>Calculadoras personalizadas</h3>
+            <p>Precios, costos, ganancias, cuotas, materiales y presupuestos automáticos.</p>
+            <a class="service-link" href="#contacto">Solicitar solución →</a>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">📦</div>
+            <h3>Control de inventario</h3>
+            <p>Productos, stock, entradas, salidas y alertas de cantidades bajas.</p>
+            <a class="service-link" href="#contacto">Solicitar solución →</a>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">📅</div>
+            <h3>Agenda y reservas</h3>
+            <p>Organización de clientes, horarios, citas, servicios y disponibilidad.</p>
+            <a class="service-link" href="#contacto">Solicitar solución →</a>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">📄</div>
+            <h3>Cotizadores digitales</h3>
+            <p>Generación rápida de presupuestos con productos, servicios y precios.</p>
+            <a class="service-link" href="#contacto">Solicitar solución →</a>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">🛒</div>
+            <h3>Formularios y pedidos</h3>
+            <p>Registro ordenado de solicitudes, ventas, clientes y entregas.</p>
+            <a class="service-link" href="#contacto">Solicitar solución →</a>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">🎓</div>
+            <h3>Plataformas de capacitación</h3>
+            <p>Contenido, preguntas, evaluaciones, resúmenes y seguimiento del aprendizaje.</p>
+            <a class="service-link" href="#contacto">Solicitar solución →</a>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">🎮</div>
+            <h3>Simuladores interactivos</h3>
+            <p>Herramientas para practicar procedimientos, decisiones o entrenamientos.</p>
+            <a class="service-link" href="#contacto">Solicitar solución →</a>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">⚙️</div>
+            <h3>Soluciones personalizadas</h3>
+            <p>Si tu necesidad no aparece aquí, podemos diseñar una herramienta desde cero.</p>
+            <a class="service-link" href="#contacto">Contar mi idea →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section" id="ejemplos">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Ejemplos de soluciones</div>
+          <h2>Ideas de herramientas que podemos desarrollar</h2>
+          <p>
+            Estos ejemplos muestran el tipo de solución que puede construirse.
+            Cada proyecto se adapta a la necesidad real del cliente.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card service-card">
+            <div class="card-icon">🧮</div>
+            <h3>Calculadora de precios</h3>
+            <p>
+              Automatiza costos, márgenes, gastos y precios finales para evitar cálculos repetitivos.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">📦</div>
+            <h3>Panel de inventario</h3>
+            <p>
+              Organiza productos, cantidades disponibles y alertas de stock bajo.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">📅</div>
+            <h3>Agenda de reservas</h3>
+            <p>
+              Centraliza clientes, fechas, horarios, servicios y estados de atención.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">📄</div>
+            <h3>Cotizador digital</h3>
+            <p>
+              Permite seleccionar productos o servicios y obtener un valor estimado rápidamente.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">🎓</div>
+            <h3>Plataforma de capacitación</h3>
+            <p>
+              Reúne contenidos, preguntas, evaluaciones, notas y seguimiento de aprendizaje.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">🎮</div>
+            <h3>Simulador interactivo</h3>
+            <p>
+              Recrea procedimientos, decisiones y escenarios de práctica para entrenamiento.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">📊</div>
+            <h3>Registro de ventas y gastos</h3>
+            <p>
+              Ordena movimientos, totales y resúmenes para mejorar el control del negocio.
+            </p>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">⚙️</div>
+            <h3>Herramienta personalizada</h3>
+            <p>
+              Si el problema es específico, diseñamos una solución desde cero.
+            </p>
+          </article>
+        </div>
+
+        <div class="pricing-note">
+          Los ejemplos no representan productos cerrados. Las funciones, diseño y valor final
+          se definen después de comprender el proceso que deseas mejorar.
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="proceso">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Cómo funciona</div>
+          <h2>De una idea a una herramienta lista para usar</h2>
+          <p>Trabajamos de forma simple, clara y paso a paso.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="card">
+            <div class="step-number">1</div>
+            <h3>Nos cuentas el problema</h3>
+            <p>Explicas qué tarea realizas, cómo la haces y qué quieres mejorar.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">2</div>
+            <h3>Diseñamos la solución</h3>
+            <p>Definimos las funciones necesarias y la forma más sencilla de utilizarlas.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">3</div>
+            <h3>Pruebas una versión</h3>
+            <p>Te mostramos un primer avance para que puedas revisarlo y probarlo.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">4</div>
+            <h3>Recibes tu herramienta</h3>
+            <p>Realizamos los ajustes y entregamos la solución lista para funcionar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="clientes">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Para quiénes trabajamos</div>
+          <h2>No necesitas una gran empresa para digitalizar tus procesos</h2>
+        </div>
+
+        <div class="audience-grid">
+          <div class="audience-item">Emprendedores</div>
+          <div class="audience-item">Pequeñas empresas</div>
+          <div class="audience-item">Restaurantes</div>
+          <div class="audience-item">Talleres</div>
+          <div class="audience-item">Profesionales</div>
+          <div class="audience-item">Academias</div>
+          <div class="audience-item">Gimnasios</div>
+          <div class="audience-item">Capacitación</div>
+          <div class="audience-item">Clubes deportivos</div>
+          <div class="audience-item">Negocios familiares</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="precios"><div class="container"><div class="section-title"><div class="eyebrow">Precios referenciales</div><h2>Servicios con valores claros desde el inicio</h2><p>Cada proyecto puede variar según las funciones, cantidad de información, diseño y nivel de personalización requerido.</p></div><div class="catalog-grid"><article class="card catalog-card"><div class="card-icon">🧮</div><h3>Calculadora personalizada</h3><p>Para automatizar precios, costos, márgenes, cuotas o materiales.</p><div class="catalog-price">Desde $20.000 <small>CLP</small></div><ul><li>Una fórmula principal</li><li>Diseño adaptable</li><li>Una modificación incluida</li></ul><button class="btn btn-secondary select-service" data-service="Calculadora personalizada">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">📝</div><h3>Formulario digital</h3><p>Registro de pedidos, solicitudes, clientes o información interna.</p><div class="catalog-price">Desde $20.000 <small>CLP</small></div><ul><li>Campos personalizados</li><li>Validación básica</li><li>Salida ordenada de datos</li></ul><button class="btn btn-secondary select-service" data-service="Formulario o pedidos">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">📊</div><h3>Registro de ventas o gastos</h3><p>Herramienta sencilla para registrar movimientos y consultar totales.</p><div class="catalog-price">Desde $25.000 <small>CLP</small></div><ul><li>Ingresos y egresos</li><li>Resumen básico</li><li>Uso desde navegador</li></ul><button class="btn btn-secondary select-service" data-service="Registro de ventas o gastos">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">📄</div><h3>Cotizador simple</h3><p>Para preparar presupuestos de productos o servicios con mayor rapidez.</p><div class="catalog-price">Desde $30.000 <small>CLP</small></div><ul><li>Selección de servicios</li><li>Cálculo automático</li><li>Resumen de cotización</li></ul><button class="btn btn-secondary select-service" data-service="Cotizador digital">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">📅</div><h3>Agenda básica de reservas</h3><p>Organización sencilla de clientes, horas, fechas y servicios.</p><div class="catalog-price">Desde $30.000 <small>CLP</small></div><ul><li>Registro de reservas</li><li>Estados de atención</li><li>Vista ordenada</li></ul><button class="btn btn-secondary select-service" data-service="Agenda o reservas">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">📦</div><h3>Control básico de inventario</h3><p>Productos, cantidades, entradas, salidas y alertas de stock bajo.</p><div class="catalog-price">Desde $35.000 <small>CLP</small></div><ul><li>Listado de productos</li><li>Control de stock</li><li>Alertas visuales</li></ul><button class="btn btn-secondary select-service" data-service="Control de inventario">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">🎓</div><h3>Plataforma de estudio</h3><p>Contenido, evaluaciones, flashcards, notas o seguimiento básico.</p><div class="catalog-price">Desde $50.000 <small>CLP</small></div><ul><li>Secciones personalizadas</li><li>Contenido interactivo</li><li>Funciones según materia</li></ul><button class="btn btn-secondary select-service" data-service="Plataforma de capacitación">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">📈</div><h3>Panel de gestión</h3><p>Resumen de información, indicadores, registros y consultas internas.</p><div class="catalog-price">Desde $60.000 <small>CLP</small></div><ul><li>Indicadores principales</li><li>Varias funciones conectadas</li><li>Diseño adaptado al negocio</li></ul><button class="btn btn-secondary select-service" data-service="Panel de gestión">Solicitar cotización</button></article><article class="card catalog-card"><div class="card-icon">🎮</div><h3>Simulador interactivo</h3><p>Entrenamiento digital para procedimientos, decisiones o capacitación.</p><div class="catalog-price">Desde $120.000 <small>CLP</small></div><ul><li>Interacciones personalizadas</li><li>Escenarios de práctica</li><li>Cotización según complejidad</li></ul><button class="btn btn-primary select-service" data-service="Simulador interactivo">Solicitar cotización</button></article></div><div class="pricing-note">Los valores son referenciales. Antes de comenzar recibirás una propuesta con alcance, funciones, plazo, modificaciones incluidas y valor final del proyecto.</div></div></section>
+
+    
+    <section class="section" id="preguntas">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Preguntas frecuentes</div>
+          <h2>Respuestas antes de comenzar</h2>
+          <p>
+            Queremos que el proceso sea claro desde el primer contacto.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Necesito instalar algún programa?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              En muchos proyectos no. La herramienta puede funcionar directamente desde un navegador
+              como Chrome, Edge o Firefox. Si el proyecto necesita instalación o configuración adicional,
+              se informará antes de comenzar.
+            </div>
+          </div>
+
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Funcionará en celular?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              Sí, cuando el alcance del proyecto lo permita. La solución puede adaptarse para computador,
+              tablet y teléfono. La compatibilidad exacta quedará indicada en la cotización.
+            </div>
+          </div>
+
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Necesito saber de tecnología?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              No. La herramienta se diseña para que sea clara y fácil de utilizar. Además, la entrega puede
+              incluir una explicación de uso según las características del proyecto.
+            </div>
+          </div>
+
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Los precios publicados son definitivos?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              No. Son valores referenciales desde los cuales puede comenzar cada tipo de proyecto.
+              El precio final depende de las funciones, cantidad de información, diseño, plazo e integraciones.
+            </div>
+          </div>
+
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Cuándo comienza el desarrollo?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              El proyecto comienza después de revisar la necesidad, aprobar la cotización y acordar las
+              condiciones de trabajo. No se inicia desarrollo solamente con el envío del formulario.
+            </div>
+          </div>
+
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Puedo solicitar algo que no aparece en los servicios?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              Sí. TFC CodeWorks trabaja principalmente con soluciones personalizadas. Puedes describir
+              tu proceso actual y evaluaremos si es posible transformarlo en una herramienta digital.
+            </div>
+          </div>
+
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Las modificaciones están incluidas?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              La cantidad de modificaciones incluidas se define en la cotización. Los cambios que alteren
+              el alcance original pueden requerir una nueva evaluación y un costo adicional.
+            </div>
+          </div>
+
+          <div class="faq-item open">
+            <button class="faq-question" type="button">
+              ¿Qué recibo al finalizar?
+              <span>−</span>
+            </button>
+            <div class="faq-answer">
+              Recibirás la solución acordada, las instrucciones básicas de uso y los archivos o acceso
+              correspondientes, según el tipo de proyecto contratado.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow">Comencemos</div>
+          <h2>Solicita una evaluación de tu proyecto</h2>
+          <p>
+            No necesitas definir la tecnología. Describe el proceso, las funciones que esperas
+            y prepararemos una propuesta clara antes de comenzar.
+          </p>
+
+          <div class="contact-benefits">
+            <span>Orientación inicial sin compromiso</span>
+            <span>Propuesta según tu necesidad</span>
+            <span>Explicación clara y sin tecnicismos</span>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm"><div class="request-reference">Solicitud: <span id="requestReference">TFC-PENDIENTE</span></div><div class="two-fields"><div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required /></div><div class="field"><label for="negocio">Nombre del negocio</label><input id="negocio" name="negocio" type="text" placeholder="Opcional" /></div></div><div class="two-fields"><div class="field"><label for="correoCliente">Correo electrónico</label><input id="correoCliente" name="correoCliente" type="email" placeholder="nombre@gmail.com" required /></div><div class="field"><label for="telefono">Teléfono de contacto</label><input id="telefono" name="telefono" type="tel" placeholder="+56 9..." required /></div></div><div class="field"><label for="tipo">¿Qué solución necesitas?</label><select id="tipo" name="tipo" required><option value="">Selecciona una opción</option><option>Calculadora personalizada</option><option>Formulario o pedidos</option><option>Registro de ventas o gastos</option><option>Cotizador digital</option><option>Agenda o reservas</option><option>Control de inventario</option><option>Plataforma de capacitación</option><option>Panel de gestión</option><option>Simulador interactivo</option><option>Otra solución</option></select></div><div class="two-fields"><div class="field"><label for="presupuesto">Presupuesto aproximado</label><select id="presupuesto" name="presupuesto"><option value="No definido">No definido</option><option>Hasta $30.000</option><option>$30.000 a $60.000</option><option>$60.000 a $100.000</option><option>Más de $100.000</option></select></div><div class="field"><label for="plazo">Plazo esperado</label><select id="plazo" name="plazo"><option value="Flexible">Flexible</option><option>Lo antes posible</option><option>Durante esta semana</option><option>Durante este mes</option><option>Fecha específica</option></select></div></div><div class="field"><label for="funciones">Funciones principales que esperas</label><textarea id="funciones" name="funciones" placeholder="Ejemplo: registrar productos, calcular totales, mostrar alertas y exportar un resumen..." required></textarea></div><div class="field"><label for="mensaje">¿Cómo realizas actualmente esta tarea?</label><textarea id="mensaje" name="mensaje" placeholder="Ejemplo: anoto todos los pedidos en un cuaderno y después calculo los totales manualmente..." required></textarea></div><button class="btn btn-primary" type="submit">Enviar solicitud</button><p class="form-note">La solicitud se enviará directamente a TFC CodeWorks.</p><div class="form-status" id="formStatus" role="status" aria-live="polite"></div></form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <div class="brand-mark">&lt;/&gt;</div>
+        <div><span>TFC</span> CodeWorks</div>
+      </div>
+
+      <p>Soluciones digitales hechas para tus necesidades.</p>
+      <p>© 2026 TFC CodeWorks</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="#contacto" aria-label="Ir al formulario de contacto">✉️</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.parentElement;
+        item.classList.toggle("open");
+        button.querySelector("span").textContent = item.classList.contains("open") ? "−" : "+";
+      });
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    const requestReference = document.getElementById("requestReference");
+    const tipoSelect = document.getElementById("tipo");
+    const formStatus = document.getElementById("formStatus");
+
+    const EMAILJS_PUBLIC_KEY = "_c-r_Geplb9ljnaxn";
+    const EMAILJS_SERVICE_ID = "service_ab12cd3";
+    const EMAILJS_TEMPLATE_ID = "template_svco1or";
+
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    function generarReferencia() {
+      const ahora = new Date();
+      const fecha = [ahora.getFullYear(), String(ahora.getMonth()+1).padStart(2,"0"), String(ahora.getDate()).padStart(2,"0")].join("\n");
+      const hora = [String(ahora.getHours()).padStart(2,"0"), String(ahora.getMinutes()).padStart(2,"0")].join("\n");
+      const aleatorio = Math.floor(100 + Math.random()*900);
+      return `TFC-${fecha}-${hora}-${aleatorio}`;
+    }
+
+    let referenciaActual = generarReferencia();
+    requestReference.textContent = referenciaActual;
+
+    document.querySelectorAll(".select-service").forEach(button => {
+      button.addEventListener("click", () => {
+        tipoSelect.value = button.dataset.service;
+        document.getElementById("contacto").scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => tipoSelect.focus(), 500);
+      });
+    });
+
+    contactForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const negocio = document.getElementById("negocio").value.trim();
+      const correoCliente = document.getElementById("correoCliente").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const tipo = document.getElementById("tipo").value;
+      const presupuesto = document.getElementById("presupuesto").value;
+      const plazo = document.getElementById("plazo").value;
+      const funciones = document.getElementById("funciones").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
+
+      formStatus.className = "form-status";
+      formStatus.textContent = "";
+
+      if (EMAILJS_SERVICE_ID.includes("REEMPLAZAR") || EMAILJS_TEMPLATE_ID.includes("REEMPLAZAR")) {
+        formStatus.className = "form-status error";
+        formStatus.textContent = "Falta completar el Service ID y Template ID de EmailJS en el código.";
+        return;
+      }
+
+      const templateParams = {
+        to_email: "tfcspa2026@gmail.com",
+        reply_to: correoCliente,
+        client_email: correoCliente,
+        client_name: nombre,
+        business_name: negocio || "No informado",
+        phone: telefono,
+        service_type: tipo,
+        budget: presupuesto,
+        deadline: plazo,
+        expected_features: funciones,
+        current_process: mensaje,
+        request_reference: referenciaActual,
+        subject: `${referenciaActual} | Nueva solicitud - ${tipo}`,
+        message: [
+          `Referencia: ${referenciaActual}`,
+          `Nombre: ${nombre}`,
+          `Negocio: ${negocio || "No informado"}`,
+          `Correo: ${correoCliente}`,
+          `Teléfono: ${telefono}`,
+          `Tipo de solución: ${tipo}`,
+          `Presupuesto: ${presupuesto}`,
+          `Plazo: ${plazo}`,
+          "",
+          "Funciones esperadas:", funciones,
+          "",
+          "Proceso actual:", mensaje
+        ].join("\n")
+      };
+
+      try {
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando solicitud...";
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+        formStatus.className = "form-status success";
+        formStatus.textContent = `Solicitud enviada correctamente. Tu referencia es ${referenciaActual}.`;
+        contactForm.reset();
+        referenciaActual = generarReferencia();
+        requestReference.textContent = referenciaActual;
+      } catch (error) {
+        console.error("Error al enviar mediante EmailJS:", error);
+        formStatus.className = "form-status error";
+        formStatus.textContent = "No fue posible enviar la solicitud. Revisa la configuración de EmailJS o intenta nuevamente.";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    });
+  </script>
+</body>
+</html>
