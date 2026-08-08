@@ -936,6 +936,157 @@
     .form-status.error {display:block;color:#F5E6E3;background:rgba(158,74,61,.18);border:1px solid rgba(190,98,82,.45);}
     .btn[disabled] {opacity:.65;cursor:wait;transform:none;}
 
+
+    /* Ajustes móviles TFC CodeWorks */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(90%, var(--max-width));
+      }
+
+      .site-header .nav {
+        min-width: 0;
+      }
+
+      .brand {
+        min-width: 0;
+        font-size: 1rem;
+      }
+
+      .brand-mark {
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        padding: 52px 0 58px;
+      }
+
+      .hero-grid {
+        gap: 40px;
+      }
+
+      .hero-grid > * {
+        min-width: 0;
+      }
+
+      .hero .eyebrow {
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.3;
+        padding: 9px 13px;
+        font-size: 0.82rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.65rem, 12vw, 3.65rem);
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+
+      .hero h1 .gradient {
+        display: block;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+        line-height: 1.65;
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        width: 100%;
+        gap: 12px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        min-height: 54px;
+        padding-inline: 16px;
+        text-align: center;
+      }
+
+      .hero-points {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .hero-points span {
+        width: 100%;
+      }
+
+      .mockup {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .section-title,
+      .contact-copy,
+      .contact-form,
+      .card,
+      .catalog-card,
+      .faq-item {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .section h2 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+        overflow-wrap: anywhere;
+      }
+
+      .floating-contact,
+      .whatsapp {
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container {
+        width: 88%;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.35rem, 11.5vw, 3.05rem);
+        letter-spacing: -0.03em;
+      }
+
+      .hero .eyebrow {
+        font-size: 0.78rem;
+      }
+
+      .hero-copy {
+        font-size: 0.96rem;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 0.95rem;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+      }
+
+      .menu-button {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
     /* Responsive */
 
     @media (max-width: 980px) {
