@@ -1,4 +1,11 @@
 // Catálogo público. Imágenes ilustrativas; cotización y alcance por WhatsApp.
+const svgArt = (color, glyph) => 'data:image/svg+xml,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320"><rect width="600" height="320" fill="#f0f3f7"/><circle cx="520" cy="50" r="130" fill="' + color + '" opacity=".06"/><rect x="214" y="44" width="320" height="234" rx="18" fill="white" stroke="#dce2e9"/><path d="M214 80h320" stroke="#e5e9ee"/><circle cx="238" cy="62" r="4" fill="' + color + '"/><circle cx="252" cy="62" r="4" fill="#cdd6df"/><rect x="238" y="102" width="118" height="9" rx="4" fill="' + color + '" opacity=".55"/><rect x="238" y="123" width="178" height="6" rx="3" fill="#e0e6ec"/><rect x="238" y="153" width="80" height="90" rx="8" fill="' + color + '" opacity=".07"/><rect x="332" y="153" width="178" height="90" rx="8" fill="#f6f8fa"/><path d="M348 223 380 205 410 214 442 180 490 167" fill="none" stroke="' + color + '" stroke-width="5" stroke-linecap="round"/><rect x="48" y="96" width="176" height="176" rx="32" fill="' + color + '"/><g transform="translate(48 104)" fill="none" stroke="white" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="' + glyph + '"/></g></svg>');
+const newProduct = (id, category, name, description, audience, benefits, features, color, glyph) => ({
+  id, category, name, description, audience, benefits, features, status: 'coming-soon', price: null, currency: 'CLP',
+  image: svgArt(color, glyph), demo: null, includes: [], requirements: [],
+  availability: 'Conversemos sobre tus necesidades para definir las funciones, el alcance y una cotización.'
+});
 const tfcProducts = [
   {
     "id": "flujo-caja-familiar",
@@ -152,8 +159,35 @@ const tfcProducts = [
     "includes": [],
     "requirements": [],
     "availability": "Conversemos sobre tus necesidades para definir las funciones, el alcance y una cotización."
-  }
+  },
+  newProduct('catalogo-pedidos-whatsapp', 'Ventas', 'Catálogo Digital con Pedidos por WhatsApp',
+    'Un catálogo en línea para mostrar tus productos y recibir los pedidos directamente en tu WhatsApp.',
+    'Para negocios que hoy venden por WhatsApp o Instagram.',
+    ['Mostrar tus productos en un solo enlace fácil de compartir.', 'Recibir pedidos ordenados, sin armar el mensaje a mano.'],
+    ['Catálogo con fotos, precios y categorías.', 'Carrito que arma el pedido y lo envía a tu WhatsApp.', 'Panel simple para actualizar productos.'],
+    '#d1495b', 'M40 60h100l-8 76H48Zm24 0a26 26 0 0 1 52 0'),
+  newProduct('agenda-reservas', 'Atención a clientes', 'Agenda y Reservas',
+    'Una herramienta para organizar citas, horas y reservas de tu negocio.',
+    'Para peluquerías, talleres, consultas y servicios con horas agendadas.',
+    ['Evitar choques de horario y olvidos.', 'Tener la agenda del día a la vista.'],
+    ['Calendario de citas por día y semana.', 'Registro de clientes y servicios.', 'Recordatorios por definir.'],
+    '#2a7f9e', 'M30 52h120v84H30Zm0 24h120M58 40v24m64-24v24'),
+  newProduct('control-clientes', 'Gestión comercial', 'Control de Clientes',
+    'Una solución para registrar clientes, contactos y su historial de compras o consultas.',
+    'Para negocios que quieren dejar de depender de cuadernos y planillas sueltas.',
+    ['Tener los datos y el historial de cada cliente en un solo lugar.', 'Saber a quién contactar y cuándo.'],
+    ['Ficha de cliente con contacto e historial.', 'Notas y seguimiento por cliente.', 'Búsqueda y filtros.'],
+    '#7a5bb5', 'M90 70a22 22 0 1 0 .1 0M44 136c4-26 24-36 46-36s42 10 46 36')
 ];
+const audiences = {
+  'flujo-caja-familiar': 'Para familias que quieren ordenar ingresos y gastos del hogar.',
+  'control-flota-vehicular': 'Para empresas con vehículos y transportistas de carga.',
+  'control-caja-negocios': 'Para negocios que quieren saber cuánto entra y cuánto sale.',
+  'cotizador-presupuestos': 'Para quienes preparan presupuestos y propuestas para clientes.',
+  'control-inventario': 'Para negocios que manejan stock y quieren evitar quiebres.',
+  'plantillas-web': 'Para quienes necesitan presencia web sin partir de cero.',
+  'recursos-digitales': 'Para quienes quieren ordenar su trabajo con plantillas y formatos.'
+};
 const money = value => new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(value);
 const element = (tag, value, className) => {
   const node = document.createElement(tag);
@@ -197,13 +231,22 @@ for (const product of tfcProducts) {
   image.width = 600; image.height = 320;
   art.append(image, element('span', 'Ilustración de referencia', 'reference-label'));
   const body = element('div', '', 'product-body');
-  const button = element('button', 'Ver detalles →');
-  button.type = 'button'; button.addEventListener('click', () => openProduct(product));
-  const interest = element('a', 'Me interesa ↗', 'text-link');
+  const top = element('div');
+  top.append(element('span', product.category, 'tag'), element('span', 'A tu medida', 'badge'));
+  const audience = product.audience || audiences[product.id];
+  const points = (product.features.length ? product.features : product.benefits).slice(0, 2);
+  const chips = element('ul', '', 'chips');
+  points.forEach(point => chips.append(element('li', point)));
+  const actions = element('div', '', 'product-actions');
+  const interest = element('a', 'Cotizar por WhatsApp ↗', 'button');
   interest.href = whatsapp(product);
   interest.target = '_blank';
   interest.rel = 'noopener noreferrer';
-  interest.classList.add('product-interest');
-  body.append(element('span', product.category, 'tag'), element('h3', product.name), element('p', product.description), interest, button);
+  const button = element('button', 'Ver detalles');
+  button.type = 'button'; button.addEventListener('click', () => openProduct(product));
+  actions.append(interest, button);
+  body.append(top, element('h3', product.name), element('p', product.description));
+  if (audience) body.append(element('p', audience, 'audience'));
+  body.append(chips, actions);
   card.append(art, body); document.getElementById('product-catalog').append(card);
 }
